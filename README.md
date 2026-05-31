@@ -17,17 +17,38 @@ Hefesto forja software robusto, atómico e incremental a partir de especificacio
 
 ---
 
-## 📦 Instalación
+## 📦 Instalación y Actualización
 
-Para instalar o enlazar esta extensión localmente en tu Gemini CLI:
+Puedes instalar esta extensión de dos formas en tu Gemini CLI:
+
+### 1. Instalación Directa (Recomendado para usuarios)
+Para instalar directamente desde el repositorio remoto en GitHub:
 
 ```bash
-# Navega al directorio de la extensión
+gemini extensions install https://github.com/olsmca/gemini-sdd-hefesto
+```
+
+* **Para Actualizar:** Si deseas obtener la última versión instalada desde el repositorio remoto:
+  ```bash
+  gemini extensions update gemini-sdd-hefesto
+  ```
+
+### 2. Instalación Local / Enlace de Desarrollo (Para colaboradores)
+Si deseas clonar el código y realizar modificaciones o colaborar en el desarrollo:
+
+```bash
+# Clona el repositorio
+git clone https://github.com/olsmca/gemini-sdd-hefesto.git
 cd gemini-sdd-hefesto
 
 # Enlaza la extensión a tu instalación local de Gemini CLI
 gemini extensions link .
 ```
+
+* **Para Actualizar:** Al estar enlazada localmente, simplemente obtén los últimos cambios del repositorio usando git:
+  ```bash
+  git pull origin main
+  ```
 
 ---
 
