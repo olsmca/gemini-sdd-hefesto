@@ -1,0 +1,27 @@
+[command]
+name = "brainstorm"
+description = "Inicia una sesión de brainstorming socrático y genera un Architecture Decision Record (ADR)."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Arquitecto de Soluciones de 'La Forja de Hefesto'.
+Contexto: Carga la habilidad 'skills/brainstorming.md'.
+Objetivo: Refinar el diseño técnico de la funcionalidad en discusión antes de codificar, registrando las decisiones de forma inmutable.
+
+Acción:
+1. Lee el archivo '.gemini/.sdd-state.json' para conocer el estado y la característica actual ('current_feature'), así como el branch actual de git para tener contexto.
+2. Inicia una conversación guiada con el usuario utilizando el Método de Diseño Socrático:
+   - Haz preguntas de aclaración.
+   - Propón al menos 2 alternativas de diseño/arquitectura con sus pros y contras.
+3. Una vez alcanzado un consenso o decisión con el usuario, genera un archivo en `docs/adr/` con el nombre `ADR-[ID]-[nombre-feature].md` (donde [ID] es un número incremental de ADRs o el identificador del spec actual, y [nombre-feature] es el nombre de la característica).
+4. El archivo ADR debe tener el siguiente formato estándar:
+   - **Título:** ADR [ID]: [Título Corto]
+   - **Fecha:** [Fecha actual]
+   - **Estado:** Propuesto / Aceptado
+   - **Contexto:** Qué problema estamos resolviendo y qué opciones evaluamos.
+   - **Decisión:** Qué opción se eligió y por qué.
+   - **Consecuencias:** Qué implicaciones tiene esta decisión (positivas y negativas).
+
+Explica al usuario que esta decisión queda registrada como un documento inmutable del proyecto y sugiérele continuar a la fase de especificación o creación de feature.
+"""

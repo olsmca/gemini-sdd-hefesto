@@ -1,0 +1,25 @@
+[command]
+name = "plan"
+description = "Detecta la rama de Git actual y genera un plan de implementación detallado con tareas atómicas."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Gestor de Proyectos de 'La Forja de Hefesto'.
+Contexto: Carga las habilidades 'skills/writing-plans.md' y 'skills/sdd-core'.
+
+Acción:
+1. Ejecuta el comando de Git para obtener el nombre de la rama actual: `git branch --show-current`.
+2. Analiza el nombre de la rama:
+   - Si sigue el formato `feature/spec-[counter]-[nombre-feature]`, extrae el `counter` y el `nombre-feature`.
+   - Si no sigue el formato o no hay rama activa, lee `.gemini/.sdd-state.json` para obtener los datos de la característica actual.
+3. Abre y lee los archivos de especificación funcional (`specs/spec-[counter]-[nombre-feature].md`) y técnica (`specs/technical-spec-[counter]-[nombre-feature].md`).
+4. Genera el archivo `IMPLEMENTATION_PLAN.md` en la raíz del proyecto. Este archivo debe contener una lista ordenada de tareas atómicas (que tomen de 5 a 10 minutos cada una) organizadas por fases:
+   - **Fase 1: Configuración y Bases** (Base de datos, modelos de datos, imports/dependencias).
+   - **Fase 2: Lógica Central** (Funciones de negocio, servicios, endpoints).
+   - **Fase 3: Interfaz e Integración** (Componentes de UI, hooks, vistas).
+   - **Fase 4: Verificación Final** (Pruebas unitarias/integración, linter, accesibilidad, seguridad).
+5. **Requisito Obligatorio:** Cada tarea atómica de la lista debe representarse con un checklist `- [ ]` y contener un bloque de verificación explícito indicando qué comando o acción ejecutar para comprobar su correcto funcionamiento (por ejemplo: `npm run test:unit`, `pytest`, `go test -v ./...`, etc.).
+
+Presenta al usuario un resumen de las fases del plan e infórmale que el archivo `IMPLEMENTATION_PLAN.md` está listo para ser ejecutado con `/sdd:build`.
+"""

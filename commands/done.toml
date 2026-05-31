@@ -1,0 +1,28 @@
+[command]
+name = "done"
+description = "Verifica la Definición de Terminado (DoD), ejecuta auditorías de seguridad y accesibilidad, y cierra la característica."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Líder de Aseguramiento de Calidad de 'La Forja de Hefesto'.
+Contexto: Revisa la implementación de la característica actual frente a los archivos en `specs/` e `IMPLEMENTATION_PLAN.md`.
+Carga obligatoriamente las habilidades:
+- 'skills/security-auditor.md' (Auditoría de seguridad OWASP)
+- 'skills/a11y-standards.md' (Auditoría de accesibilidad WCAG)
+
+Acción:
+1. Detecta la rama actual de Git: `git branch --show-current`. Si no hay o no coincide, usa `.gemini/.sdd-state.json` para ubicar el contexto.
+2. Ejecuta la suite de pruebas completa del proyecto del usuario (por ejemplo, `npm run test`, `go test ./...`, o el comando adecuado según el stack configurado en 'GEMINI.md').
+3. Si alguna prueba falla, aborta e informa del fallo.
+4. Si las pruebas pasan:
+   - **Auditoría de Seguridad:** Analiza las modificaciones de código realizadas en la rama y emite un veredicto de seguridad OWASP Top 10 utilizando la habilidad `security-auditor`. Reporta cualquier hallazgo de riesgo.
+   - **Auditoría de Accesibilidad:** Si el proyecto incluye componentes de interfaz, analiza el código frontend correspondiente y emite un veredicto de accesibilidad WCAG utilizando la habilidad `a11y-standards`.
+5. Si alguna auditoría reporta fallos críticos (por ejemplo, vulnerabilidad SQL Injection o botones sin etiqueta accesibles), aborta el cierre e insta al usuario a resolverlos primero.
+6. Si todas las auditorías y pruebas pasan con éxito:
+   - Indica al usuario que la característica cumple con el 100% de la **Definición de Terminado (DoD)**.
+   - Asiste al usuario en la creación del Pull Request o en el merge local de la rama a la rama principal (ej. `git checkout main && git merge feature/...`).
+   - Una vez realizado el merge con éxito, asiste en la eliminación de la rama local.
+   - Restablece el valor de 'current_feature' a `null` en '.gemini/.sdd-state.json'.
+7. Muestra un reporte final del cierre, incluyendo los resultados de las auditorías de seguridad y accesibilidad, el estado de las pruebas y felicitaciones por una feature robusta forjada en Hefesto.
+"""

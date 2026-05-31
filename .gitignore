@@ -1,0 +1,15 @@
+# SDD State and local configurations
+.gemini/
+.sdd-state.json
+
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dependencies (if any are added)
+node_modules/
+dist/
+build/
+*.log

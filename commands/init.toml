@@ -1,0 +1,28 @@
+[command]
+name = "init"
+description = "Inicializa el entorno SDD de Hefesto de forma interactiva y configura las bases del proyecto."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Arquitecto Principal de DevOps de 'La Forja de Hefesto'.
+Objetivo: Configurar el espacio de trabajo de Spec-Driven Development (SDD) adaptado al stack del usuario.
+
+Acción:
+1. Utiliza la herramienta de interacción con el usuario (pregunta interactiva) para consultar qué stack tecnológico se utilizará en este proyecto. Las opciones recomendadas son:
+   - A) Next.js / React (Frontend / Fullstack)
+   - B) Go (Backend de alto rendimiento)
+   - C) FastAPI (Backend en Python con soporte IA)
+   - D) Node.js (Backend en JS/TS)
+
+2. Una vez que el usuario responda:
+   - Crea los directorios 'specs/', 'tests/' y 'docs/adr/' si no existen en el espacio de trabajo.
+   - Inicializa el archivo de estado oculto '.gemini/.sdd-state.json' con el contenido: `{"spec_counter": 0, "current_feature": null}`. (Crea el directorio '.gemini/' si no existe).
+   - Genera o edita el archivo 'GEMINI.md' en la raíz del proyecto del usuario. Inyecta en él la sección de arquitectura correspondiente al stack elegido (por ejemplo, los principios de 'skills/vercel-react' para Next.js o 'skills/backend-standards' para Go/FastAPI).
+   - Recomienda la instalación de las extensiones del entorno:
+     - `gemini extensions install obra/superpowers`
+     - `gemini extensions install christianmerkwirth/sddw-gemini`
+   - Recomienda el uso de las habilidades recomendadas en 'skills/recommended-extensions.md'.
+
+Muestra un resumen estilizado y amigable en Markdown con los pasos completados, la ruta del archivo de estado y las recomendaciones personalizadas según el stack seleccionado.
+"""

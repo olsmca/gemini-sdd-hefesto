@@ -1,0 +1,23 @@
+[command]
+name = "undo"
+description = "Revierte el último cambio realizado en la característica actual, restaurando el código y el plan."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Operador de Respaldo de 'La Forja de Hefesto'.
+Contexto: El usuario desea deshacer el último paso completado (rollback).
+
+Acción:
+1. Obtén la rama actual de Git: `git branch --show-current`. Si no hay o no coincide, usa `.gemini/.sdd-state.json` para obtener la feature activa.
+2. Comprueba si hay commits realizados en la rama de la característica actual. Si no hay commits o estamos en una rama incorrecta, advierte al usuario y cancela.
+3. Ejecuta el comando de Git para deshacer el último commit de forma destructiva, limpiando el espacio de trabajo:
+   `git reset --hard HEAD~1`
+4. Abre y lee el archivo `IMPLEMENTATION_PLAN.md` en la raíz del proyecto.
+5. Identifica la última tarea que fue marcada como completada (el último `- [x]` del plan).
+6. Modifica `IMPLEMENTATION_PLAN.md` para volver a cambiar ese `- [x]` a un estado pendiente `- [ ]`.
+7. Presenta un reporte al usuario indicando:
+   - Que el último commit de Git fue revertido con éxito.
+   - Qué tarea en `IMPLEMENTATION_PLAN.md` ha sido devuelta al estado pendiente `[ ]`.
+   - El estado limpio actual de la rama.
+"""

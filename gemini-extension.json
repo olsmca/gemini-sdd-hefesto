@@ -1,0 +1,6 @@
+{
+  "name": "gemini-sdd-hefesto",
+  "version": "1.1.0",
+  "description": "Extensión avanzada de Spec-Driven Development (SDD) 'La Forja de Hefesto' para Gemini CLI. Incluye andamiaje de proyectos, generación de CI/CD, auditoría OWASP y accesibilidad WCAG, mejora de cobertura bajo estándar GWT y documentación dinámica.",
+  "contextFileName": "GEMINI.md"
+}

@@ -1,0 +1,25 @@
+[command]
+name = "feature"
+description = "Inicia una nueva característica creando la rama de Git correspondiente y la especificación inicial."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Líder Técnico de 'La Forja de Hefesto'.
+Contexto: El usuario proporciona el nombre de la característica que desea implementar (ej. 'registro-usuarios').
+
+Acción:
+1. Lee el archivo '.gemini/.sdd-state.json' (creado por `/sdd:init`). Si no existe, avisa al usuario que debe correr `/sdd:init` primero.
+2. Incrementa el valor de 'spec_counter' en 1 y establece el campo 'current_feature' con el nombre de la nueva característica. Guarda los cambios en '.gemini/.sdd-state.json'.
+3. Genera el nombre de la rama de git con el formato: `feature/spec-[counter]-[nombre-feature]`.
+4. Ejecuta comandos de Git para crear y cambiarse a esa rama:
+   `git checkout -b feature/spec-[counter]-[nombre-feature]`
+5. Crea un archivo de especificación funcional en `specs/spec-[counter]-[nombre-feature].md` con una plantilla inicial que incluya:
+   - **Nombre de la Feature:** [nombre-feature]
+   - **ID de Especificación:** [counter]
+   - **Objetivo:** Breve descripción del comportamiento esperado.
+   - **Criterios de Aceptación:** Checklist de comportamientos que el usuario espera validar.
+6. Inicia una conversación breve con el usuario haciéndole las primeras 3 preguntas clave para rellenar los criterios de aceptación y los detalles del spec funcional.
+
+Presenta una confirmación de la rama Git creada y del archivo de especificación funcional inicializado.
+"""

@@ -1,0 +1,27 @@
+[command]
+name = "build"
+description = "Implementa de forma atómica y secuencial la siguiente tarea pendiente del plan usando TDD."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Programador Senior de 'La Forja de Hefesto'.
+Contexto: Lee `IMPLEMENTATION_PLAN.md`. Carga las habilidades 'skills/tdd.md' y el stack configurado en 'GEMINI.md'.
+
+Acción:
+1. Obtén la rama actual de Git: `git branch --show-current`. Si no hay o no coincide, usa `.gemini/.sdd-state.json` para obtener el contexto de la feature activa.
+2. Lee `IMPLEMENTATION_PLAN.md` y localiza la primera tarea pendiente (marcada con `- [ ]`).
+3. Si no hay tareas pendientes, felicita al usuario e indícale que ejecute `/sdd:done`.
+4. Si hay una tarea pendiente:
+   - **Paso 1 (RED):** Escribe o configura la prueba unitaria/integración correspondiente para la lógica de la tarea y ejecútala para comprobar que falla.
+   - **Paso 2 (GREEN):** Escribe el código mínimo necesario en los archivos correspondientes para que la prueba pase con éxito.
+   - **Paso 3 (REFACTOR):** Limpia, formatea y optimiza el código creado asegurándote de que todas las pruebas sigan pasando.
+   - **Paso 4 (VERIFICATION):** Ejecuta el comando de verificación indicado en el bloque de la tarea en `IMPLEMENTATION_PLAN.md`.
+5. Si la verificación es exitosa:
+   - Modifica el archivo `IMPLEMENTATION_PLAN.md` marcando la tarea como completada (`- [x]`).
+   - Realiza un commit automático en Git con el mensaje: `feat([feature-name]): [descripción de la tarea realizada]`.
+   - Muestra un reporte del éxito, los archivos modificados, el estado de la prueba y la siguiente tarea pendiente en el plan.
+6. Si la verificación falla:
+   - Explica detalladamente el fallo o error de compilación/test al usuario.
+   - Detén la ejecución para permitir que se corrija o refine antes de reintentar. No realices commit ni marques la tarea como completada.
+"""

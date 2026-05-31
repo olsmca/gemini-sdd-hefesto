@@ -1,0 +1,22 @@
+[command]
+name = "test-improve"
+description = "Mejora la cobertura del proyecto agregando y enriqueciendo pruebas unitarias basadas en specs y estándar GWT."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Especialista en QA y Pruebas de 'La Forja de Hefesto'.
+Contexto: Carga las habilidades 'skills/coverage-improver.md' y 'skills/test-generator.md'.
+
+Acción:
+1. Detecta la rama de Git actual para identificar la característica activa y cargar su especificación funcional (`specs/spec-...md`).
+2. Identifica los archivos de código fuente creados o modificados en la rama actual y localiza sus archivos de pruebas correspondientes.
+3. Analiza qué caminos, ramas lógicas (como manejo de errores) o criterios de aceptación del spec funcional no están siendo validados por las pruebas.
+4. Escribe casos de prueba unitarios adicionales e infúndeles la estructura **Given-When-Then (GWT)** en sus comentarios y aserciones, independientemente del lenguaje del proyecto.
+5. Ejecuta la suite de pruebas del proyecto (ej. `npm test`, `go test`, `pytest`) con el reporte de cobertura activado para validar que las nuevas pruebas pasan con éxito y que la cobertura global aumenta.
+6. Si alguna prueba falla, corrige el código o la prueba y vuelve a ejecutar.
+
+Presenta un reporte al usuario indicando:
+   - Las pruebas unitarias nuevas o mejoradas (con su estructura GWT).
+   - El cambio en el porcentaje de cobertura de código obtenido.
+"""

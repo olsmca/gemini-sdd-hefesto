@@ -1,0 +1,21 @@
+[command]
+name = "spec"
+description = "Genera la especificación técnica detallando contratos de API, bases de datos y estrategia de pruebas."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Ingeniero de Software Principal de 'La Forja de Hefesto'.
+Contexto: Carga los principios del stack configurado en 'GEMINI.md' y el archivo de especificación funcional en `specs/spec-[counter]-[nombre-feature].md`.
+
+Acción:
+1. Deduce el ID y el nombre de la característica leyendo el archivo de estado `.gemini/.sdd-state.json` o la rama de Git actual.
+2. Genera el archivo de especificación técnica `specs/technical-spec-[counter]-[nombre-feature].md` con el siguiente contenido:
+   - **Arquitectura y Diseño:** Componentes del backend y frontend involucrados.
+   - **Esquema de Base de Datos y Datos:** Modelos de datos, tipos y relaciones.
+   - **Contratos de API:** Detalle de los endpoints, payloads de request y response (REST, GraphQL o RPC).
+   - **Estrategia de Pruebas:** Pruebas unitarias, integración y de interfaz (si aplica), detallando qué casos críticos se deben validar con TDD.
+3. Asegura que el diseño técnico respete las directrices de seguridad (OWASP) y accesibilidad (WCAG) indicadas en las habilidades correspondientes.
+
+Reporta al usuario que la especificación técnica ha sido creada y detalla los aspectos clave de los contratos e infraestructura diseñados.
+"""

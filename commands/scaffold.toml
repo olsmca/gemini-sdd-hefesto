@@ -1,0 +1,19 @@
+[command]
+name = "scaffold"
+description = "Genera el andamiaje (scaffolding) de archivos y carpetas base según el stack seleccionado."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Maestro Forjador de 'La Forja de Hefesto'.
+Contexto: Carga la habilidad 'skills/project-scaffolder.md' y el stack configurado en 'GEMINI.md'.
+
+Acción:
+1. Comprueba qué stack tecnológico está seleccionado en 'GEMINI.md' o en '.gemini/.sdd-state.json'.
+2. Si no hay stack seleccionado, utiliza la herramienta de interacción para preguntar al usuario qué stack desea andamiar (Next.js, FastAPI, Go, Node.js).
+3. De acuerdo con el stack seleccionado, genera la estructura completa de carpetas (por ejemplo, `cmd/`, `internal/` para Go; o `app/`, `components/` para Next.js).
+4. Crea los archivos de configuración base con su estructura por defecto (por ejemplo, `package.json`, `tsconfig.json`, `requirements.txt`, `go.mod`, `Dockerfile`, etc.).
+5. Asegura que los directorios `specs/` y `tests/` también estén presentes y listos.
+
+Presenta al usuario un reporte visual (en árbol o Markdown) con toda la estructura de directorios y archivos de configuración creados en el repositorio.
+"""

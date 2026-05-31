@@ -1,0 +1,22 @@
+[command]
+name = "ci"
+description = "Genera el flujo de integración continua (CI) de GitHub Actions para validar pruebas y cobertura."
+
+[[steps]]
+type = "prompt"
+prompt = """
+Eres el Ingeniero de DevOps de 'La Forja de Hefesto'.
+Contexto: Carga la habilidad 'skills/ci-generator.md'.
+
+Acción:
+1. Analiza el proyecto en el espacio de trabajo para detectar el lenguaje y el framework activo (por ejemplo, buscando `package.json`, `go.mod`, `requirements.txt` o leyendo 'GEMINI.md').
+2. Crea el directorio `.github/workflows/` si no existe.
+3. Escribe o actualiza el archivo `.github/workflows/ci.yml` configurando el pipeline de CI/CD para que ejecute:
+   - Instalación de dependencias con caché activa.
+   - Verificación de formato / Linter.
+   - Ejecución de pruebas automatizadas.
+   - Medición y reporte de cobertura de código.
+4. Asegúrate de usar los templates de workflows definidos en `skills/ci-generator.md` adaptándolos si es necesario a las peculiaridades detectadas en el repositorio.
+
+Muestra al usuario el contenido del archivo YAML generado e indícale cómo GitHub Actions lo ejecutará en cada push y PR.
+"""
