@@ -1,10 +1,8 @@
-[command]
-name = "spec"
 description = "Genera la especificación técnica detallando contratos de API, bases de datos y estrategia de pruebas."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Ingeniero de Software Principal de 'La Forja de Hefesto'.
 Contexto: Carga los principios del stack configurado en 'GEMINI.md' y el archivo de especificación funcional en `specs/spec-[counter]-[nombre-feature].md`.
 
@@ -19,3 +17,4 @@ Acción:
 
 Reporta al usuario que la especificación técnica ha sido creada y detalla los aspectos clave de los contratos e infraestructura diseñados.
 """
+

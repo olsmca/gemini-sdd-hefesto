@@ -1,10 +1,8 @@
-[command]
-name = "scaffold"
 description = "Genera el andamiaje (scaffolding) de archivos y carpetas base según el stack seleccionado."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Maestro Forjador de 'La Forja de Hefesto'.
 Contexto: Carga la habilidad 'skills/project-scaffolder.md' y el stack configurado en 'GEMINI.md'.
 

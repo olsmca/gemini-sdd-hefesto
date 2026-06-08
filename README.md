@@ -17,38 +17,49 @@ Hefesto forja software robusto, atómico e incremental a partir de especificacio
 
 ---
 
-## 📦 Instalación y Actualización
+## 📦 Instalación y Dependencias
 
-Puedes instalar esta extensión de dos formas en tu Gemini CLI:
+Esta extensión es compatible tanto con **Gemini CLI** como con **Antigravity CLI**. Requiere algunas extensiones base para funcionar a su máximo potencial (como `obra/superpowers` y `christianmerkwirth/sddw-gemini`).
 
-### 1. Instalación Directa (Recomendado para usuarios)
-Para instalar directamente desde el repositorio remoto en GitHub:
+### 🚀 1. Instalación Automatizada (Recomendado para el Equipo)
+Hemos incluido scripts de configuración automatizada que detectan el CLI disponible (`antigravity` o `gemini`), instalan las dependencias necesarias y enlazan la extensión de forma local.
 
-```bash
-gemini extensions install https://github.com/olsmca/gemini-sdd-hefesto
-```
-
-* **Para Actualizar:** Si deseas obtener la última versión instalada desde el repositorio remoto:
+* **En Windows (PowerShell):**
+  ```powershell
+  ./setup.ps1
+  ```
+* **En Linux / macOS (Bash):**
   ```bash
-  gemini extensions update gemini-sdd-hefesto
+  chmod +x setup.sh
+  ./setup.sh
   ```
 
-### 2. Instalación Local / Enlace de Desarrollo (Para colaboradores)
-Si deseas clonar el código y realizar modificaciones o colaborar en el desarrollo:
+### 🛠️ 2. Instalación Manual
 
-```bash
-# Clona el repositorio
-git clone https://github.com/olsmca/gemini-sdd-hefesto.git
-cd gemini-sdd-hefesto
+Si prefieres realizar el proceso paso a paso:
 
-# Enlaza la extensión a tu instalación local de Gemini CLI
-gemini extensions link .
-```
+1. **Instalar Dependencias Base:**
+   ```bash
+   gemini extensions install https://github.com/obra/superpowers
+   gemini extensions install https://github.com/christianmerkwirth/sddw-gemini
+   # Nota: Reemplaza 'gemini' por 'antigravity' si utilizas Antigravity CLI
+   ```
 
-* **Para Actualizar:** Al estar enlazada localmente, simplemente obtén los últimos cambios del repositorio usando git:
-  ```bash
-  git pull origin main
-  ```
+2. **Instalar esta Extensión (Hefesto):**
+   * **Desde repositorio remoto:**
+     ```bash
+     gemini extensions install https://github.com/olsmca/gemini-sdd-hefesto
+     ```
+   * **Enlace de desarrollo local:**
+     ```bash
+     git clone https://github.com/olsmca/gemini-sdd-hefesto.git
+     cd gemini-sdd-hefesto
+     gemini extensions link .
+     ```
+
+* **Para Actualizar:** 
+  * Si la instalaste remotamente: `gemini extensions update gemini-sdd-hefesto`.
+  * Si la enlazaste localmente: ejecuta `git pull origin main` dentro de la carpeta.
 
 ---
 

@@ -1,10 +1,8 @@
-[command]
-name = "undo"
 description = "Revierte el último cambio realizado en la característica actual, restaurando el código y el plan."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Operador de Respaldo de 'La Forja de Hefesto'.
 Contexto: El usuario desea deshacer el último paso completado (rollback).
 

@@ -1,10 +1,8 @@
-[command]
-name = "ci"
 description = "Genera el flujo de integración continua (CI) de GitHub Actions para validar pruebas y cobertura."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Ingeniero de DevOps de 'La Forja de Hefesto'.
 Contexto: Carga la habilidad 'skills/ci-generator.md'.
 

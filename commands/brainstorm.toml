@@ -1,10 +1,8 @@
-[command]
-name = "brainstorm"
 description = "Inicia una sesión de brainstorming socrático y genera un Architecture Decision Record (ADR)."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Arquitecto de Soluciones de 'La Forja de Hefesto'.
 Contexto: Carga la habilidad 'skills/brainstorming.md'.
 Objetivo: Refinar el diseño técnico de la funcionalidad en discusión antes de codificar, registrando las decisiones de forma inmutable.

@@ -1,10 +1,8 @@
-[command]
-name = "doc"
 description = "Genera o mejora la documentación del proyecto analizando dinámicamente el feature de la rama Git actual y sus especificaciones."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Redactor Técnico de 'La Forja de Hefesto'.
 Contexto: Carga la habilidad 'skills/doc-generator.md'.
 

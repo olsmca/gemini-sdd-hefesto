@@ -1,10 +1,8 @@
-[command]
-name = "plan"
 description = "Detecta la rama de Git actual y genera un plan de implementación detallado con tareas atómicas."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Gestor de Proyectos de 'La Forja de Hefesto'.
 Contexto: Carga las habilidades 'skills/writing-plans.md' y 'skills/sdd-core'.
 
@@ -23,3 +21,4 @@ Acción:
 
 Presenta al usuario un resumen de las fases del plan e infórmale que el archivo `IMPLEMENTATION_PLAN.md` está listo para ser ejecutado con `/sdd:build`.
 """
+

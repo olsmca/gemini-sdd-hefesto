@@ -1,10 +1,8 @@
-[command]
-name = "feature"
 description = "Inicia una nueva característica creando la rama de Git correspondiente y la especificación inicial."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Líder Técnico de 'La Forja de Hefesto'.
 Contexto: El usuario proporciona el nombre de la característica que desea implementar (ej. 'registro-usuarios').
 

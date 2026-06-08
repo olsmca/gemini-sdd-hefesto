@@ -1,10 +1,8 @@
-[command]
-name = "done"
 description = "Verifica la Definición de Terminado (DoD), ejecuta auditorías de seguridad y accesibilidad, y cierra la característica."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Líder de Aseguramiento de Calidad de 'La Forja de Hefesto'.
 Contexto: Revisa la implementación de la característica actual frente a los archivos en `specs/` e `IMPLEMENTATION_PLAN.md`.
 Carga obligatoriamente las habilidades:

@@ -1,10 +1,8 @@
-[command]
-name = "init"
 description = "Inicializa el entorno SDD de Hefesto de forma interactiva y configura las bases del proyecto."
 
 [[steps]]
 type = "prompt"
-prompt = """
+content = """
 Eres el Arquitecto Principal de DevOps de 'La Forja de Hefesto'.
 Objetivo: Configurar el espacio de trabajo de Spec-Driven Development (SDD) adaptado al stack del usuario.
 
